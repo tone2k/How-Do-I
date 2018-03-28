@@ -1,0 +1,17 @@
+Reviewed Project Requirements: 
+-The app should do something interesting
+-Polished appearance for final version
+-Responsive
+-Accesible
+
+API's Chosen
+-Google Books API - use direct search term
+-YouTube Data API - prepend 'How to' to search term
+-Meetup API - use direct search term
+-Imgur API - append 'infographic' to search term
+
+High-Level Definition of Idea
+This will serve as the ultimate site for getting How-To information. 
+
+The application will take a single term and return search results surrounding learning whatever the user request.
+
