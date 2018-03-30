@@ -5,8 +5,8 @@ input[type=text] {
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    background-image: url('/images/search.png');
-    background-size: 35px;
+    /* background-image: url('/images/search.png');
+    background-size: 35px; */
     background-position: 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 45px;
@@ -14,13 +14,24 @@ input[type=text] {
     transition: width 0.4s ease-in-out;
 }
 
+#search-term {
+    background-image: url('/images/search.png');
+    background-size: 35px;
+}
+
+#location {
+    background-image: url('/images/gpsicon.png');
+    background-size: 30px;
+    padding-right: 20px;
+}
+
 input[type=text]:focus {
-    text-align: center;
-    width: 90.5%;
+    /* text-align: center; */
+    width: 50%;
 }
 
 input[type=submit] {
-    width: 130px;
+    width: 175px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;

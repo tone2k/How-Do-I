@@ -11,9 +11,11 @@
 <body>
     <div>
     <form id="searchBar">
-        <input id="search-term" type="text" name="search" onfocus="this.placeholder = ''" onblur="this.placeholder = 'How do I?'">
+        <input id="search-term" type="text" name="search" placeholder="How do I...">
+        <input id="location" type="text" placeholder="Location">
         <input type="submit" value="Submit">
         <div id="searchResults" aria-live="assertive" hidden></div>
+        <div id="searchResultsB" aria-live="assertive" hidden></div>
     </form>
     </div>
     <script src="script.js"></script>
