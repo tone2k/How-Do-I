@@ -8,7 +8,7 @@ $(`#searchBar`).submit(function (event) {
     console.log(search);
     handleVideos(search);
     handleMeetups(search, location);
-    $(`#search-term`).val(``);
+    // $(`#search-term`).val(``);
 });
 
 function populateResults(data) {
