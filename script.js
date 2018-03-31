@@ -46,19 +46,10 @@ function handleVideos(search) {
 }
 
 function handleMeetups (search, location) {
-    // var search = 'javascript';
-    // var locationVal = '';
-    // if (userInput) {
-    //     searchValue = userInput;
-    // }
-    // if (location) {
-    //     locationVal = location;
-    //     console.log(locationVal)
-    // }
     $.ajax({
         url: 'https://api.meetup.com/find/groups',
         data: {
-            key: '106175216e3c4ad233449412e3542b',
+            key: '2c4239331347a569527f52571c263c',
             location: location,
             text: search,
             upcoming_events: true,
