@@ -26,7 +26,7 @@ function populateResultsB(data) {
     $(`#searchResultsB`).empty();
     let html = "";
     for (let i = 0; i < data.length; i++) {
-        html += '<img src ="' + data[i].key_photo.photo_link + '"/>';
+        html += '<img src ="' + data[i].organizer.photo.photo_link + '"/>';
     }
     $(`#searchResultsB`).prop('hidden', false);
     $(`#searchResultsB`).append(html);
@@ -42,6 +42,7 @@ function handleVideos(search) {
     };
     $.getJSON(YOUTUBE_SEARCH_URL, parameters, function (data) {
         populateResults(data);
+        console.log(data);
     });
 }
 
