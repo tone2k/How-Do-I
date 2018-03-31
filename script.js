@@ -22,16 +22,16 @@ function populateResults(data) {
     $(`#searchResults`).append(html);
 }
 
-// function populateResultsB(data) {
-//     console.log(`data populated!`)
-//     $(`#searchResults`).empty();
-//     let html = "";
-//     for (let i = 0; i < data.length; i++) {
-//         html += '<img src ="' + data.items[i].snippet.thumbnails.medium.url + '"/>';
-//     }
-//     $(`#searchResultsB`).prop('hidden', false);
-//     $(`#searchResultsB`).append(html);
-// }
+function populateResultsB(data) {
+    $(`#searchResultsB`).empty();
+    let html = "";
+    for (let i = 0; i < data.length; i++) {
+        html += '<img src ="' + data[i].key_photo.photo_link + '"/>';
+    }
+    $(`#searchResultsB`).prop('hidden', false);
+    $(`#searchResultsB`).append(html);
+    console.log(`data populated!`)
+}
 
 function handleVideos(search) {
     let parameters = {
@@ -59,11 +59,10 @@ function handleMeetups (search, location) {
         type: 'GET',
         success: function (data) {
             console.log(data);
-            // populateResultsB(data);
+            populateResultsB(data.data);
         },
         error: function (error) {
             console.log(error);
         }
-    })
-
+    });
 }
