@@ -20,7 +20,7 @@ function handleVideos(search) {
         key: `AIzaSyCrVDceP1-KwRsIVi12ODPCwS2oSHe-_7k`,
         q: search,
         part: `snippet`,
-        maxResults: 15,
+        maxResults: 30,
     };
     $.getJSON(YOUTUBE_SEARCH_URL, parameters, function (data) {
         populateResultsA(data);
@@ -79,8 +79,8 @@ function populateResultsA(data) {
     let html = "";
     for (let i = 0; i < data.items.length; i++) {
         // html += '<p>' + data.items[i].snippet.title + '</p>';
-        html += '<a href="https://www.youtube.com/watch?v=' + data.items[i].id.videoId + '" ><img src ="' + data.items[i].snippet.thumbnails.medium.url + '"/></a>';
-    }
+        html += '<a href="https://www.youtube.com/watch?v=' + data.items[i].id.videoId + '" ><img id="videos" src ="' + data.items[i].snippet.thumbnails.medium.url + '"/></a>';
+    };
     $(`#searchResults`).prop('hidden', false);
     $(`#searchResults`).append(html);
 }
