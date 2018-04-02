@@ -1,14 +1,15 @@
+
+
 // takes input value from user text in search bar and passes to API calls
 $(`#searchBar`).submit(function (event) {
-    console.log(`form submitted!`)
+    console.log(`Search Recieved!`)
     event.preventDefault();
     let search = "How to " + $(`#search-term`).val();
     let location = $(`#location`).val();
-    console.log(search);
+    console.log(`Searching the world for ` + search + ` in or near ` + location + `...`);
     handleVideos(search);
     handleWiki(search);
-    // handleImages(search);
-    // handleMeetups(search, location);
+    handleMeetups(search, location);
     // $(`#search-term`).val(``);
 });
 
@@ -22,36 +23,38 @@ function handleVideos(search) {
         maxResults: 15,
     };
     $.getJSON(YOUTUBE_SEARCH_URL, parameters, function (data) {
-        populateResults(data);
-        // console.log(data);
+        populateResultsA(data);
+        console.log(`YouTube results:`);
+        console.log(data.items);
     });
 }
 
 // takes search term and passes query to Meetup GET request
 
-// function handleMeetups (search, location) {
-// const settings = {
-//         url: 'https://api.meetup.com/find/groups',
-//         data: {
-//             key: '2c4239331347a569527f52571c263c',
-//             location: location,
-//             text: search,
-//             upcoming_events: true,
-//             radius: 20,
+function handleMeetups (search, location) {
+const settings = {
+        url: 'https://api.meetup.com/find/groups',
+        data: {
+            key: '2c4239331347a569527f52571c263c',
+            location: location,
+            text: search,
+            upcoming_events: true,
+            radius: 20,
 
-//         },
-//         dataType: 'jsonp',
-//         type: 'GET',
-//         success: function (data) {
-//             // console.log(data);
-//             populateResultsB(data.data);
-//         },
-//         error: function (error) {
-//             console.log(error);
-//         }
-//     };
-//     $.ajax(settings);
-// }
+        },
+        dataType: 'jsonp',
+        type: 'GET',
+        success: function (data) {
+            console.log(`MeetUp results:`);
+            console.log(data.data);
+            // populateResultsB(data.data);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    };
+    $.ajax(settings);
+}
 
 // takes search term and passes query to Wiki GET request
 function handleWiki(search) {
@@ -60,16 +63,18 @@ function handleWiki(search) {
         data: { action: 'query', list: 'search', srsearch: search, format: 'json' },
         dataType: 'jsonp',
         success: function (data) {
-            console.log(data);
+            console.log(`Wiki results:`);
+            console.log(data.query.search);
             // populateResultsC(data);
-        }
+        },
+        // error: function (error) {
+        //     console.log(error);
+        // }
     })
 };
 
 // populates Youtube JSON results into HTML
-function populateResults(data) {
-    console.log(`youtube data populated!`)
-    console.log(data);
+function populateResultsA(data) {
     $(`#searchResults`).empty();
     let html = "";
     for (let i = 0; i < data.items.length; i++) {
@@ -81,20 +86,20 @@ function populateResults(data) {
 }
 
 // populates Meetup JSON results into HTML
-// function populateResultsB(data) {
-//     $(`#searchResultsB`).empty();
-//     let html = "";
-//     for (let i = 0; i < data.length; i++) {
-//         const photoLink = data[i].key_photo.photo_link;
-//         html += '<img id="results" src ="'+ photoLink +'"/>';
-//         // console.log(photoLink);
-//     }
-//     // $("#results").wrap($('<a>', {
-//     //     href: '/Content/pdf/' + data.pdf1
-//     // }));
-//     $(`#searchResultsB`).prop('hidden', false);
-//     $(`#searchResultsB`).append(html);
-// }
+function populateResultsB(data) {
+    $(`#searchResultsB`).empty();
+    let html = "";
+    for (let i = 0; i < data.length; i++) {
+        const photoLink = data[i].key_photo.photo_link;
+        html += '<img id="results" src ="'+ photoLink +'"/>';
+        // console.log(photoLink);
+    }
+    // $("#results").wrap($('<a>', {
+    //     href: '/Content/pdf/' + data.pdf1
+    // }));
+    $(`#searchResultsB`).prop('hidden', false);
+    $(`#searchResultsB`).append(html);
+}
 
 // populates Wiki JSON results into HTML
 function populateResultsC(data) {
