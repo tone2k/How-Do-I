@@ -48,4 +48,18 @@ input[type=submit] {
 
 #submit-btn:hover {
     background: green;
+    color: white;
+}
+
+.results {
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+img {
+    margin: 2px 2px 2px 2px;
+    border: 2px solid silver;
+    width: 325px;
+    height: 150px;
 }
