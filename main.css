@@ -46,8 +46,18 @@ input[type=submit] {
 #searchBar {
     padding-right: 20px;
     padding-left: 20px;
-    padding-top: 45px;
     text-align: center;
+}
+
+input {
+    border: 2px solid #dadada;
+    border-radius: 7px;
+}
+
+input:focus {
+    outline: none;
+    border-color: rgb(204, 0, 1);
+    box-shadow: 0 0 10px rgb(204, 0, 1);
 }
 
 #submit-btn:hover {
