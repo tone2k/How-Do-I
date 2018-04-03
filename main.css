@@ -19,12 +19,12 @@ input[type=text] {
 }
 
 #search-term {
-    background-image: url('/images/search.png');
+    background-image: url('images/search.png');
     background-size: 35px;
 }
 
 #location {
-    background-image: url('/images/gpsicon.png');
+    background-image: url('images/gpsicon.png');
     background-size: 30px;
 }
 

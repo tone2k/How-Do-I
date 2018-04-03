@@ -9,7 +9,6 @@ $(`#searchBar`).submit(function (event) {
     console.log(`Searching the world for how to ` + search + ` in or near ` + location + `...`);
     handleMeetups(search, location);
     handleVideos(search);
-    handleWiki(search);
     handleBooks(search);
     $(`footer`).show();
     $(`#arrowTwo`).show();
