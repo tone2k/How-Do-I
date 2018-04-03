@@ -9,15 +9,15 @@ I found myself searching Google for book recommendations, then searching for eve
 ## Screenshots
 Landing Page:
 
-![start screen](screenshots/screenshot1.png)
+![start screen](screenshot1.png)
 
 Video and MeetUP results:
 
-![results](screenshots/screenshot2.png)
+![results](screenshot2.png)
 
 Book results:
 
-![results](screenshots/screenshot3.png)
+![results](screenshot3.png)
 
 ## Summary
 
