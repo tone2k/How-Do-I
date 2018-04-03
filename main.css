@@ -28,9 +28,14 @@ input[type=text] {
     background-size: 30px;
 }
 
+p {
+    font-family: 'Amaranth',
+    sans-serif;
+}
+
 input[type=text]:focus {
     /* text-align: center; */
-    width: 30%;
+    width: 20%;
 }
 
 input[type=submit] {
@@ -62,22 +67,36 @@ input:focus {
 }
 
 #submit-btn:hover {
-    background: green;
-    color: white;
+    background: lightblue;
+    color: rgb(204, 0, 1);
+    font-weight: bold;
 }
 
 .results {
     background-color: rgb(204, 0, 1);
     margin-top: 20px;
-    margin-left: 14%;
-    margin-right: 14%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-#videos {
-    margin: 2px 2px 2px 2px;
+.videos {
+    margin: 5px 2px 5px 2px;
     border: 2px solid silver;
     width: 325px;
     height: 170px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7),
+      0 6px 20px 0 rgba(0, 0, 0, 0.68);
+
+}
+
+.books {
+    margin: 10px 20px 10px 20px;
+    border: 2px solid silver;
+    width: 190px;
+    height: 280px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 07),
+      0 6px 20px 0 rgba(0, 0, 0, 0.68);
+
 }
 
 #banner {
@@ -88,16 +107,15 @@ input:focus {
 #imageBox {
     text-align: center;
 }
-
-#foot {
-    font-family: 'Barlow',
-    sans-serif;
+footer {
+    display: none;
+    font-family: 'Barlow', sans-serif;
     font-size: 50px;
     font-weight: bolder;
     background-color: rgb(204, 0, 1);
     margin-left: 14.888%;
     margin-right: 14.888%;
-    margin-top: 325px;
+    margin-top: 100px;
     text-align: center;
     color: white;
     height: 60px;
@@ -112,5 +130,96 @@ input:focus {
 #excl {
     position: absolute;
     bottom: -25px;
+    right: 250px;
 
+}
+
+#arrowOne {
+    width: 75px;
+    position: fixed;
+    right: 5.555%;
+    bottom: 20px;
+}
+
+#arrowTwo {
+    width: 75px;
+    position: relative;
+    right: -60.555%;
+    bottom: -40px;
+    display: none;
+}
+
+figure {
+    display: inline-block;
+    width: 330px;
+}
+
+.hover01 figure img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.hover01 figure:hover img {
+    -webkit-transform: scale(1.07);
+    transform: scale(1.07);
+}
+ 
+.meetup {
+   margin: 5px 2px 5px 2px;
+   border: 2px solid silver;
+   width: 325px;
+   height: 220px;
+   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7),
+   0 6px 20px 0 rgba(0, 0, 0, 0.68); */
+
+}
+
+.card {
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+    transition: 0.3s;
+    width: 600px;
+    height: 500px;
+    overflow: auto;
+    display: inline-block;
+    margin: 10px 20px 10px 20px;
+    background-color: rgba(192, 192, 192, 0.7);
+    border: 3px solid silver;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+}
+
+.card:hover {
+    box-shadow: 0 0 8px 3px #fff;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.itemsContainer {
+    background: red;
+    /* float: left; */
+    position: relative
+}
+
+.itemsContainer:hover .play {
+    display: inline;
+}
+
+.play {
+    position: absolute;
+    display: none;
+    top: 25%;
+    width: 40px;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    z-index: 100
+}
+
+.play-btn {
+    width: 100px;
+    opacity: 0.7;
 }

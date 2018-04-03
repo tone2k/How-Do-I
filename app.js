@@ -7,10 +7,12 @@ $(`#searchBar`).submit(function (event) {
     let search = $(`#search-term`).val();
     let location = $(`#location`).val();
     console.log(`Searching the world for how to ` + search + ` in or near ` + location + `...`);
+    handleMeetups(search, location);
     handleVideos(search);
     handleWiki(search);
-    handleMeetups(search, location);
     handleBooks(search);
+    $(`footer`).show();
+    $(`#arrowTwo`).show();
     // $(`#search-term`).val(``);
 });
 
@@ -21,7 +23,7 @@ function handleVideos(search) {
         key: `AIzaSyCrVDceP1-KwRsIVi12ODPCwS2oSHe-_7k`,
         q: "How to " + search,
         part: `snippet`,
-        maxResults: 30,
+        maxResults: 10,
     };
     $.getJSON(YOUTUBE_SEARCH_URL, parameters, function (data) {
         populateResultsA(data);
@@ -43,12 +45,14 @@ const settings = {
             radius: 20,
 
         },
+        maxResults: 12,
         dataType: 'jsonp',
         type: 'GET',
+        
         success: function (data) {
             console.log(`MeetUp results:`);
             console.log(data.data);
-            // populateResultsB(data.data);
+            populateResultsB(data.data);
         },
         error: function (error) {
             console.log(error);
@@ -68,9 +72,9 @@ function handleWiki(search) {
             console.log(data.query.search);
             // populateResultsC(data);
         },
-        // error: function (error) {
-        //     console.log(error);
-        // }
+        error: function (error) {
+            console.log(error);
+        }
     })
 };
 
@@ -81,6 +85,7 @@ function handleBooks(search) {
         success: function(data) {
             console.log('Book Results:');
             console.log(data.items);
+            populateResultsC(data);
         },
         type: 'GET'
     });
@@ -89,22 +94,25 @@ function handleBooks(search) {
 // populates Youtube JSON results into HTML
 function populateResultsA(data) {
     $(`#searchResults`).empty();
-    let htmlImg = "";
+    let html = "";
     for (let i = 0; i < data.items.length; i++) {
-        htmlImg += '<a href="https://www.youtube.com/watch?v=' + data.items[i].id.videoId + '" ><img id="videos" src ="' + data.items[i].snippet.thumbnails.medium.url + '"/></a>';
+        html += '<a href="https://www.youtube.com/watch?v=' + data.items[i].id.videoId + '" ><figure class="itemsContainer"><img class="videos" src ="' + data.items[i].snippet.thumbnails.medium.url + '"/><div class="play"><img class="play-btn" src="/images/play.png"/> </div></figure></a>';
     };
     $(`#searchResults`).prop('hidden', false);
-    $(`#searchResults`).append(htmlImg);
+    $(`#searchResults`).append(html);
 }
 
 // populates Meetup JSON results into HTML
 function populateResultsB(data) {
     $(`#searchResultsB`).empty();
     let html = "";
-    for (let i = 0; i < data.length; i++) {
-        const photoLink = data[i].key_photo.photo_link;
-        html += '<img id="results" src ="'+ photoLink +'"/>';
-        // console.log(photoLink);
+    for (let i = 0; i < 10; i++) {
+        if (data[i].key_photo) {
+            const photoLink = data[i].key_photo.photo_link;
+            html += '<div class="card"><a href="' + data[i].link + '" ><figure><img class="meetup" id="results" src ="' + photoLink + '"/></figure></a><div class="container"><p class="text">' + data[i].description + '</p></div></div>';
+        } else {
+            console.log('missing photo link data');
+        }
     }
     // $("#results").wrap($('<a>', {
     //     href: '/Content/pdf/' + data.pdf1
@@ -113,14 +121,19 @@ function populateResultsB(data) {
     $(`#searchResultsB`).append(html);
 }
 
-// populates Wiki JSON results into HTML
+// populates Book JSON results into HTML
 function populateResultsC(data) {
     console.log(`data populated!`)
-    $(`#searchResults`).empty();
+    $(`#searchResultsC`).empty();
     let html = "";
     for (let i = 0; i < data.items.length; i++) {
-        html += '<img src ="' + data.query.search[i].snippet + '"/>';
+        if (data.items[i].volumeInfo) {
+        html += '<a href="' + data.items[i].volumeInfo.infoLink + '" ><img class="books" id="results" src ="' + data.items[i].volumeInfo.imageLinks.thumbnail; + '"/></a>';
+        } else {
+            console.log('missing book link data');
+        }
     };
-    $(`#searchResultsB`).prop('hidden', false);
-    $(`#searchResultsB`).append(html);
+    $(`#searchResultsC`).prop('hidden', false);
+    $(`#searchResultsC`).append(html);
 }
+
