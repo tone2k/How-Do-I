@@ -7,6 +7,17 @@ A search page for the three main methods of learning. Users can enter a search t
 I found myself searching Google for book recommendations, then searching for events for like-minded people and watching videos online that were related to whatever it was I was learning. Shouldn't there be a site for this? 
 
 ## Screenshots
+Landing Page:
+
+![start screen](screenshots/screenshot1.png)
+
+Video and MeetUP results:
+
+![results](screenshots/screenshot2.png)
+
+Book results:
+
+![results](screenshots/screenshot3.png)
 
 ## Summary
 
