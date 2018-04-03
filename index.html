@@ -11,23 +11,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <div id="imageBox"><img id="banner" src="images/how.png"></div>
+    <div id="imageBox"><img id="banner" alt="how do I?" src="images/how.png"></div>
     <div id="main">
     <form id="searchBar">
         <input id="search-term" type="text" name="search" placeholder="How do I...">
         <input id="location" type="text" placeholder="Location">
         <input id="submit-btn" type="submit" value="Search">
-        <div class="hover01 results" id="searchResultsB" aria-live="assertive" hidden></div>
-        <div class="hover01 results" aria-live="assertive" id="searchResults" hidden></div>
-        <div class="hover01 results" id="searchResultsC" aria-live="assertive" hidden></div>
-        <div class="results" id="searchResultsD" aria-live="assertive" hidden></div>
+            <section role="region" class="hover01 results" id="searchResultsB" aria-live="assertive" hidden></section>
+            <section role="region" class="hover01 results" aria-live="assertive" id="searchResults" hidden></section>
+            <section role="region" class="hover01 results" id="searchResultsC" aria-live="assertive" hidden></section>
+            <section role="region" class="results" id="searchResultsD" aria-live="assertive" hidden></section>
     </form>
         <footer id="foot"><p>& NOW YOU KNOW</p>
-            <img id="excl" src="images/point.png">
-            <img id="arrowTwo" src="images/download.png">
+            <img id="excl" alt="exclamation point" src="images/point.png">
+            <img id="arrowTwo" alt="arrow" src="images/download.png">
         </footer>
     </div>
-    <img id="arrowOne" src="images/download2.png">
+        <img id="arrowOne" alt="arrow" src="images/download2.png">
     <script src="app.js"></script>
 </body>
 </html>
