@@ -60,23 +60,6 @@ const settings = {
     $.ajax(settings);
 }
 
-// takes search term and passes query to Wiki GET request
-function handleWiki(search) {
-    $.ajax({
-        url: 'http://en.wikipedia.org/w/api.php',
-        data: { action: 'query', list: 'search', srsearch: "How to " + search, format: 'json' },
-        dataType: 'jsonp',
-        success: function (data) {
-            console.log(`Wiki results:`);
-            console.log(data.query.search);
-            // populateResultsC(data);
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    })
-};
-
 function handleBooks(search) {
     $.ajax({
         url: 'https://www.googleapis.com/books/v1/volumes?q=' + "How to " + search,
@@ -113,9 +96,6 @@ function populateResultsB(data) {
             console.log('missing photo link data');
         }
     }
-    // $("#results").wrap($('<a>', {
-    //     href: '/Content/pdf/' + data.pdf1
-    // }));
     $(`#searchResultsB`).prop('hidden', false);
     $(`#searchResultsB`).append(html);
 }
