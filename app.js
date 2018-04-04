@@ -75,7 +75,7 @@ function handleBooks(search) {
 
 // populates Youtube JSON results into HTML
 function populateResultsA(data) {
-    $(`#searchResults`).empty();
+    // $(`#searchResults`).empty();
     let html = "";
     for (let i = 0; i < data.items.length; i++) {
         html += '<a href="https://www.youtube.com/watch?v=' + data.items[i].id.videoId + '" ><figure class="itemsContainer"><img class="videos" src ="' + data.items[i].snippet.thumbnails.medium.url + '"/><div class="play"><img class="play-btn" src="images/play.png"/> </div></figure></a>';
@@ -115,4 +115,5 @@ function populateResultsC(data) {
     $(`#searchResultsC`).prop('hidden', false);
     $(`#searchResultsC`).append(html);
 }
+
 
