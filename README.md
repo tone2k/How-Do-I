@@ -9,7 +9,7 @@ I found myself searching Google for book recommendations, then searching for eve
 ## Screenshots
 Landing Page:
 
-![start screen](screenshot1.png)
+![start screen](screenshots/screenshot1.png)
 
 Video and MeetUP results:
 
