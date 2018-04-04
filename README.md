@@ -11,13 +11,17 @@ Landing Page:
 
 ![start screen](screenshots/screenshot1.png)
 
-Video and MeetUP results:
+MeetUP results:
 
 ![results](screenshots/screenshot2.png)
 
-Book results:
+Video results:
 
 ![results](screenshots/screenshot3.png)
+
+Book results:
+
+![results](screenshots/screenshot4.png)
 
 Mobile View:
 
