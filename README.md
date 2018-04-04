@@ -13,11 +13,15 @@ Landing Page:
 
 Video and MeetUP results:
 
-![results](screenshot2.png)
+![results](screenshots/screenshot2.png)
 
 Book results:
 
-![results](screenshot3.png)
+![results](screenshots/screenshot3.png)
+
+Mobile View:
+
+![results](screenshots/mobile_screenshot.PNG)
 
 ## Summary
 
