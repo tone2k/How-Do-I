@@ -1,4 +1,7 @@
 @media only screen and (max-width: 600px) {
+    body {
+        overflow-x: hidden;
+    }
     #banner {
         width: 100%;
     }
